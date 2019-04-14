@@ -76,8 +76,7 @@ section h3.section-subheading {
 }
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
-  background-color: #fec810 !important;
-  border-color: #fec810 !important;
+  background-color: #AADBED !important;
   color: white;
 }
 
@@ -100,7 +99,7 @@ img::-moz-selection {
 }
 
 #mainNav {
-  background-color: #212529;
+  background-color: #F7A874;
 }
 
 #mainNav .navbar-toggler {
@@ -108,7 +107,7 @@ img::-moz-selection {
   right: 0;
   padding: 13px;
   text-transform: uppercase;
-  color: white;
+  color: black;
   border: 0;
   background-color: #fed136;
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -682,5 +681,17 @@ ul.social-buttons li a {
 }
 
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
-  background-color: #fed136;
+  background-color: #AADBED;
+}
+
+div-top {
+  width: 320px;
+  padding: 10%;
+  border: 5px solid gray;
+  margin: 0;
+}
+
+.boxed {
+  background-color: #fcfdfe;
+  padding:10px;
 }
