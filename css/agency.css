@@ -697,3 +697,8 @@ div-top {
   padding:10px;
 }
 
+.crop {
+ height: auto;
+ width: 200px;
+ object-fit:scale-down;
+}
