@@ -163,9 +163,9 @@
       <button type="button" class="btn cancel" onclick="closeForm()">Close X</button>
     </div>
     <form class="form-container">
-      <p id="chatbot2" style="color:red" ;> </p>
+      <p id="chatbot2" style="color:black" ;> </p>
       <p id="displayMsg2" align="right" style="color:blue;"> </p>
-      <p id="chatbot" style="color:red;">Hello! How can I help you today?</p>
+      <p id="chatbot" style="color:black;">Hello! How can I help you today?</p>
       <br />
       <p id="displayMsg" align="right" style="color:blue;"> </p>
 
@@ -208,7 +208,7 @@
       msg = $('#msg').val();
       console.log(msg);
       // Displays sent message and clears textbox
-      $('#displayMsg').text(msg);
+      $('#displayMsg2').text(msg);
       $('#msg').val('');
       //increases counter
       count = count + 1;
@@ -219,8 +219,9 @@
           // chatbot2 becomes chatbot
           var chat1 = $('#chatbot').text();
           console.log(chat1);
-          $('#chatbot2').val(chat1);
-          $('#chatbot').text('Got it! When would you like to see a counselor? \n - As soon as possible \n - This week \n -Next Week');
+          $('#chatbot2').text(chat1);
+          var obj = $('#chatbot').text('Got it! When would you like to see a counselor? \n - As soon as possible \n - This week \n -Next Week');
+          obj.html(obj.html().replace(/\n/g,'<br/>'));
           break;
         case 2:
           // code block
