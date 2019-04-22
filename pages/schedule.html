@@ -23,7 +23,7 @@
   <!-- Custom styles for this template -->
   <link href="../css/agency.min.css" rel="stylesheet">
 
-  <!-- Used for chatbot -->
+  <!-- Used for chatbot , this needs to be in the head of the page-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {font-family: Arial, Helvetica, sans-serif;}
@@ -165,16 +165,33 @@
     <form class="form-container">
       <p id="chatbot2" style="color:black" ;> </p>
       <p id="displayMsg2" align="right" style="color:blue;"> </p>
-      <p id="chatbot" style="color:black;">Hello! How can I help you today?</p>
+      <p id="chatbot" style="color:black;">Hello! My name is Maria, how can I help you today?</p>
+      <ul class="list-inline" id = "timesAvail">
+        <li>- Wed, April 3:4:00PM <button type="button" style="background-color: #F7A874;" onclick="setAppt()">Select</button></li>
+        <li>- Thurs, April 4:2:30PM <button type="button" style="background-color: #F7A874;" onclick="setAppt()">Select</button></li>
+        <li>- Fri, April 4:3:00PM <button type="button"style="background-color: #F7A874;" onclick="setAppt()">Select</button></li>
+      </ul>
       <br />
       <p id="displayMsg" align="right" style="color:blue;"> </p>
 
       <label for="msg"><b>Message</b></label>
-      <textarea placeholder="Type message.." name="msg" id="msg" required></textarea>
+      <textarea placeholder="Type message.." name="msg" id="msg"></textarea>
 
       <button type="button" class="btn" onclick="displayMessage()">Send</button>
     </form>
   </div>
+
+  <section class="bg-light" id="portfolio">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-left">
+          <h2 class="section-heading text-uppercase">Schedule an Appointment</h2>
+          <h3 class="section-subheading text-muted">If you need to schedule an appointment, You've come to the right place! <br /> You can choose a date and time that works for you or you can use our interactive chatbot called Maria on the bottom right!</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 
 
@@ -198,6 +215,8 @@
 
     function openForm() {
       document.getElementById("myForm").style.display = "block";
+      $("#timesAvail").hide();
+
     }
 
     function closeForm() {
@@ -205,6 +224,7 @@
     }
 
     function displayMessage() {
+      //Always hide list of times avail to start, will be used later
       msg = $('#msg').val();
       console.log(msg);
       // Displays sent message and clears textbox
@@ -220,18 +240,49 @@
           var chat1 = $('#chatbot').text();
           console.log(chat1);
           $('#chatbot2').text(chat1);
-          var obj = $('#chatbot').text('Got it! When would you like to see a counselor? \n - As soon as possible \n - This week \n -Next Week');
-          obj.html(obj.html().replace(/\n/g,'<br/>'));
+          var obj = $('#chatbot').text('Got it! When would you like to see a counselor? \n - As soon as possible \n - This week \n - Next Week');
+          obj.html(obj.html().replace(/\n/g, '<br/>'));
           break;
         case 2:
-          // code block
+          // chatbot2 becomes chatbot
+          var chat1 = $('#chatbot').text();
+          console.log(chat1);
+          $('#chatbot2').text(chat1);
+          var obj = $('#chatbot').text('Next week, great! Looking at your current class schedule, I see that you have the following open:\n ');
+          obj.html(obj.html().replace(/\n/g, '<br/>'));
+          $("#timesAvail").show();
+          $("#msg").prop('disabled', true);
           break;
+        case 3:
+            // chatbot2 becomes chatbot
+            var chat1 = $('#chatbot').text();
+            console.log(chat1);
+            $('#chatbot2').text(chat1);
+            var obj = $('#chatbot').text('Awesome! Have a Good Day :) ');
+            obj.html(obj.html().replace(/\n/g, '<br/>'));
+            $("#timesAvail").show();
+            $("#msg").prop('disabled', true);
         default:
           // code block
           console.log('DEFAULT')
+          $("#timesAvail").hide();
+
       }
+    }
 
+    function setAppt(){
+      console.log('IN SET APP')
+      $("#timesAvail").hide();
+      $('#displayMsg2').text('Wed, April 3:4:00PM');
 
+      $("#msg").prop('disabled', false);
+      console.log(msg);
+      // Displays bot message after selecting button
+      var chat1 = $('#chatbot').text();
+      console.log(chat1);
+      $('#chatbot2').text(chat1);
+      var obj = $('#chatbot').text('Great! I will get that appointment set up for and add it your Google Calendar. I will also send you an email reminder the day before! \n Anything else that I can help you with?');
+      obj.html(obj.html().replace(/\n/g, '<br/>'));
     }
   </script>
 
