@@ -21,7 +21,7 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
-  <link href="../css/agency.min.css" rel="stylesheet">
+  <link href="../css/agency.css" rel="stylesheet">
 
   <!-- Used for chatbot , this needs to be in the head of the page-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -151,7 +151,7 @@
             <a class="nav-link js-scroll-trigger" href="services.html">Our Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="facts.html">Get The Facts</a>
+            <a class="nav-link js-scroll-trigger" href="facts.html">FAQ</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="schedule.html">Schedule</a>
@@ -160,7 +160,7 @@
             <a class="nav-link js-scroll-trigger" href="help.html">Help Someone</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="resources.html">Resources</a>
+            <a class="nav-link js-scroll-trigger" href="resources.html">Self-Help</a>
           </li>
         </ul>
       </div>
@@ -178,6 +178,8 @@
     </div>
   </header> -->
 
+
+<!--
   <button class="open-button" onclick="openForm()">Chat</button>
 
   <div class="chat-popup" id="myForm">
@@ -201,7 +203,7 @@
 
       <button type="button" class="btn" onclick="displayMessage()">Send</button>
     </form>
-  </div>
+  </div>-->
 
   <section class="bg-light" id="portfolio">
     <div class="yui3-skin-sam">
@@ -259,6 +261,9 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
       // single selection is enabled by default,
       // we expect there to be only one date)
       var newDate = ev.newSelection[0];
+      console.log(newDate);
+      $("#portfolioModal1").modal("show");
+
 
       // Format the date and output it to a DOM
       // element.
@@ -292,6 +297,8 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
 </iframe>
 </div>
 
+
+<!--MAY 1 @ 4pm-->
 <div class="column" style="padding-left:75px">
   <h4>Individual Counseling</h4>
     <div class="container" style="width:400px">
@@ -300,35 +307,49 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
                      <div class="card no-border" style="width:600px">
                          <div id="chat" class="conv-form-wrapper">
                              <form action="" method="GET" class="hidden">
-                                 <select data-conv-question="Hi there! What kind of appointment would you like to set up?" name="first-question">
-                                     <option value="yes">Individual Counseling</option>
-                                     <option value="sure">Group Counseling</option>
+                                 <select data-conv-question="Hi there! What kind of appointment would you like to set up?" name="appointment">
+                                     <option value="ind">Individual Counseling</option>
+                                     <option value="group">Group Counseling</option>
                                      <option value="unsure">Not Sure</option>
                                  </select>
-                                 <input type="text" name="name" data-conv-question="Okay! When would you like to see a counselor?">
-	                                <input type="text" data-conv-question="Howdy, {name}:0! It's a pleasure to meet you. (note that this question doesn't expect any answer)" data-no-answer="true">
-	                                <input type="text" data-conv-question="This plugin supports multi-select too. Let's see an example." data-no-answer="true">
-	                                <select name="multi[]" data-conv-question="What kind of music do you like?" multiple>
-	                                    <option value="Rock">Rock</option>
-	                                    <option value="Pop">Pop</option>
-	                                    <option value="Country">Country</option>
-	                                    <option value="Classic">Classic</option>
-	                                </select>
-	                                <select name="programmer" data-callback="storeState" data-conv-question="So, are you a programmer? (this question will fork the conversation based on your answer)">
-	                                    <option value="yes">Yes</option>
-	                                    <option value="no">No</option>
-	                                </select>
-	                                <div data-conv-fork="programmer">
-	                                    <div data-conv-case="yes">
-	                                        <input type="text" data-conv-question="A fellow programmer! Cool." data-no-answer="true">
-	                                    </div>
-	                                    <div data-conv-case="no">
-		                                    <select name="thought" data-conv-question="Have you ever thought about learning? Programming is fun!">
-		                                    	<option value="yes">Yes</option>
-		                                    	<option value="no">No..</option>
-		                                    </select>
-	                                    </div>
-	                                </div>
+                                 <div data-conv-fork="appointment">
+                                     <div data-conv-case="ind">
+                                         <input type="text" name="date" data-conv-question="Okay! When would you like to see a counselor?">
+        	                                <input type="text" data-conv-question="Okay great, I see some availability for {date}!" data-no-answer="true">
+        	                                <select name="multi[]" data-conv-question="Do any of these times work for you?" multiple>
+        	                                    <option value="11:30am-12p">11:30am-12pm</option>
+        	                                    <option value="1-1:30pm">1-1:30pm</option>
+        	                                    <option value="4-4:30pm">4-4:30pm</option>
+        	                                    <option value="None of these work">None of these work</option>
+        	                                </select>
+        	                                <select name="programmer" data-callback="storeState" data-conv-question="Great! Just to confirm, your appointment will be on May 1 @ 4:30pm.">
+        	                                    <option value="yes">Confirm</option>
+        	                                    <option value="no">Cancel</option>
+        	                                </select>
+        	                                <div data-conv-fork="programmer">
+        	                                    <div data-conv-case="yes">
+        	                                        <select name="email_yn" data-conv-question="Perfect, you're all set for then. Would you like me to send you a confirmation email?">
+                                                    <option value="yes">Yes</option>
+          		                                    	<option value="no">No</option>
+                                                  </select>
+                                                  <input type="text" name="email" data-conv-question="Okay! What is your email?">
+                                                  <input type="text" name ="cool" data-conv-question="A confirmation email has been sent to {email}. Is there anything else I can help you with?">
+                                                  <input type="text" data-conv-question="Okay! Have a great day and we look forward to seeing you at the UCC.">
+
+                                              </div>
+        	                                    <div data-conv-case="no">
+        		                                    <select name="thought" data-conv-question="Have you ever thought about learning? Programming is fun!">
+        		                                    	<option value="yes">Yes</option>
+        		                                    	<option value="no">No..</option>
+        		                                    </select>
+        	                                    </div>
+	                                       </div>
+                                     </div>
+                                     <div data-conv-case="group">
+                                       <input type="text" data-conv-question="Great! Please refer to the calendar to the left for available group sessions.">
+                                  </div>
+
+                                  <!--
 	                                <input type="text" data-conv-question="convForm also supports regex patterns. Look:" data-no-answer="true">
 	                                <input data-conv-question="Type in your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="email" type="email" name="email" required placeholder="What's your e-mail?">
 	                                <input data-conv-question="Now tell me a secret (like a password)" type="password" data-minlength="6" id="senha" name="password" required placeholder="password">
@@ -342,7 +363,7 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
 	                                </select>
 	                                <select data-conv-question="This is it! If you like me, consider donating! If you need support, contact me. When the form gets to the end, the plugin submits it normally, like you had filled it." id="">
 	                                    <option value="">Awesome!</option>
-	                                </select>
+	                                </select>-->
                              </form>
                          </div>
                      </div>
@@ -414,6 +435,34 @@ YUI().use('calendar', 'datatype-date', 'cssbutton',  function(Y) {
 	</script>
   <!-- end of chatbot script-->
 
+
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1"
+        role="dialog" aria-hidden="true" style="width:700px;height:200%;padding-top:175px;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+            <div class="rl"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <div class="modal-body">
+                <!-- Project Details Go Here -->
+                <h5>Let's Talk Hours</h5>
+                <p>3-4pm, Hesburgh Library,B001D</p>
+                <h5>Group Counseling Sessions</h5>
+                <p style="text-align:left"><b>Social Anxiety Group</b> Wednesdays 3:20-4:50pm<br>
+                   <b>Focus!</b>         Wednesdays 3:30-4:45pm<br>
+                   <b>Not the Perfect Family</b> Wednesdays 4:15-5:30pm<br>
+                   <b>Graduate Therapy Group</b> Wednesdays 5-6:30pm<br></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+   </div>
 
 
 
