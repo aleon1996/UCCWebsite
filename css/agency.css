@@ -704,3 +704,15 @@ div-top {
  width: 200px;
  object-fit:scale-down;
 }
+
+.myblock {
+  vertical-align: middle;
+  display: block;
+  color: white;
+  background-color: #032c5b;
+  font-size: 30px;
+  height: 100px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
