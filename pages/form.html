@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>UCC Website</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="../css/agency.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <div id="leftElement">
+    <img src="../img/ND.jpg" width="100%">
+  </div>
+
+  <div id="belowElement">
+    <a href="../index.html"> <img src="../img/ucc.png" width="100%"></a>
+  </div>
+
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F7A874;" id="mainNav">
+    <div class="container">
+      <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">UCC Website</a> -->
+
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="services.html">Our Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="facts.html">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="schedule.html">Schedule</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="help.html">Help Someone</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="resources.html">Self-Help</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Form to fill out to refer a friend -->
+  <section class="bg-light" id="signs">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-left">
+          <h2 class="section-heading text-uppercase">Refer a Friend</h2>
+          <h3 class="section-subheading text-muted">If you believe a friend may need help or is struggling with a mental health problem, fill out the form below with your friend's to refer a friend to the UCC, we will contact them via email and show them some of the resources available to them</h3>
+        </div>
+      </div>
+      <form id="contact-form" method="post" action="contact.php" role="form">
+
+        <div class="messages"></div>
+
+        <div class="controls">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_name">Firstname *</label>
+                <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your friend's firstname *" required="required" data-error="Firstname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_lastname">Lastname *</label>
+                <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your friend' lastname *" required="required" data-error="Lastname is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="form_email">Email *</label>
+                <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your friend's email *" required="required" data-error="Valid email is required.">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <!-- <div class="form-group">
+                <label for="form_need">Please specify your need *</label>
+                <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
+                  <option value=""></option>
+                  <option value="Request quotation">Request quotation</option>
+                  <option value="Request order status">Request order status</option>
+                  <option value="Request copy of an invoice">Request copy of an invoice</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div class="help-block with-errors"></div>
+              </div> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="form_message">Message *</label>
+                <textarea id="form_message" name="message" class="form-control" placeholder="Enter a brief message to help the UCC know what your friend is struggling with" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <input type="submit" class="btn btn-success btn-send" value="Send message">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="text-muted">
+                <strong>*</strong> Thank you for your concern. Contact the UCC for more info
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Contact form JavaScript -->
+  <script src="../js/jqBootstrapValidation.js"></script>
+  <script src="../js/contact_me.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/agency.min.js"></script>
+
+</body>
+
+</html>
